@@ -1,12 +1,12 @@
-# Dev 分支推送部署预览
+# Main 分支推送部署预览
 ## 仅部署 Win 端
-name: Build Dev
+name: Build Main
 
 on:
   push:
     branches:
+      - main
       - dev
-      - master
 
 jobs:
   release:
