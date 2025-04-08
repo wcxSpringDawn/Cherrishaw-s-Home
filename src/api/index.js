@@ -52,12 +52,30 @@ export const getHitokoto = async () => {
 /**
  * 天气
  */
-
-// 获取高德地理位置信息
+// 调用服务器上的get-visitor-ip.js服务并获取高德地理位置信息
 export const getAdcode = async (key) => {
-  const res = await fetch(`https://restapi.amap.com/v3/ip?key=${key}&ip=118.31.12.119`);
+  // 获取访客的 IP 地址
+  const ipResponse = await fetch('http://localhost:3001/get-ip');
+  const ipData = await ipResponse.json();
+  let visitorIp = ipData.ip;
+
+  // 处理 IPv6 映射的 IPv4 地址
+  if (visitorIp.startsWith("::ffff:")) {
+    visitorIp = visitorIp.slice(7); // 去掉 "::ffff:"
+  }
+
+  // 使用获取的 IP 地址调用高德 API
+  const res = await fetch(`https://restapi.amap.com/v3/ip?key=${key}&ip=${visitorIp}`);
   return await res.json();
 };
+
+
+
+// 获取高德地理位置信息
+// export const getAdcode = async (key) => {
+//   const res = await fetch(`https://restapi.amap.com/v3/ip?key=${key}&ip=118.31.12.119`);
+//   return await res.json();
+// };
 
 // 获取高德地理天气信息
 export const getWeather = async (key, city) => {
