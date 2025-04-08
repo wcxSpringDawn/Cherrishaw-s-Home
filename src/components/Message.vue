@@ -106,12 +106,12 @@ watch(
       font-family: "Pacifico-Regular";
 
       .bg {
-        font-size: 5rem;
+        font-size: 2rem;
       }
 
       .sm {
         margin-left: 6px;
-        font-size: 2rem;
+        font-size: 0.5rem;
         @media (min-width: 721px) and (max-width: 789px) {
           display: none;
         }
