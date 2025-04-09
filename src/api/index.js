@@ -40,7 +40,7 @@ export const getPlayerList = async (server, type, id) => {
 };
 
 /**
- * 一言
+ * 一言..
  */
 
 // 获取一言数据
