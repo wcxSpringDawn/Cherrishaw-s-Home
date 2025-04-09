@@ -55,7 +55,7 @@ export const getHitokoto = async () => {
 // 调用服务器上的get-visitor-ip.js服务并获取高德地理位置信息
 export const getAdcode = async (key) => {
   // 获取访客的 IP 地址
-  const ipResponse = await fetch('http://118.31.12.119:3001/get-ip');
+  const ipResponse = await fetch('http://118.31.12.119:3001/api/get-ip');
   const ipData = await ipResponse.json();
   let visitorIp = ipData.ip;
 
