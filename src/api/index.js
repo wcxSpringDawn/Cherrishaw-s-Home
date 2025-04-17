@@ -43,9 +43,9 @@ export const getPlayerList = async (server, type, id) => {
  * 一言..
  */
 
-// 获取一言数据
+// 获取一言数据（已经替换为my-hitokoto微服务）
 export const getHitokoto = async () => {
-  const res = await fetch("http://118.31.12.119/api/my-hitokoto");
+  const res = await fetch("http://cherrishaw.xyz/api/my-hitokoto");
   return await res.json();
 };
 
@@ -55,7 +55,7 @@ export const getHitokoto = async () => {
 // 调用服务器上的get-visitor-ip.js服务并获取高德地理位置信息
 export const getAdcode = async (key) => {
   // 获取访客的 IP 地址
-  const ipResponse = await fetch('http://118.31.12.119/api/get-ip');
+  const ipResponse = await fetch('http://cherrishaw.xyz/api/get-ip');
   const ipData = await ipResponse.json();
   let visitorIp = ipData.ip;
 
@@ -68,16 +68,6 @@ export const getAdcode = async (key) => {
   const res = await fetch(`https://restapi.amap.com/v3/ip?key=${key}&ip=${visitorIp}`);
   return await res.json();
 };
-
-
-
-
-
-// 获取高德地理位置信息
-// export const getAdcode = async (key) => {
-//   const res = await fetch(`https://restapi.amap.com/v3/ip?key=${key}&ip=118.31.12.119`);
-//   return await res.json();
-// };
 
 // 获取高德地理天气信息
 export const getWeather = async (key, city) => {

@@ -109,7 +109,7 @@ onMounted(() => {
     flex-direction: column;
     justify-content: space-evenly;
     .text {
-      font-size: 1.1rem;
+      font-size: 0.8rem;
       word-break: break-all;
       text-overflow: ellipsis;
       overflow: hidden;
